@@ -16,7 +16,7 @@ import java.util.function.Predicate;
  * <p>
  * http://blog.csdn.net/pzxwhc/article/details/48314039
  */
-public class FirstDemo {
+public class FunctionConsumerPredicateDemo {
 
     /**
      * 一. Function 接口的使用
