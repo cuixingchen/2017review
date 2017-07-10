@@ -3,6 +3,7 @@ package com.cuipengfei.java.review.javautilfunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * Created by cuipengfei on 17-5-20.
@@ -20,6 +21,8 @@ public class FunctionConsumerPredicateDemo {
 
     /**
      * 一. Function 接口的使用
+     * Function 接口有一个参数并且返回一个结果，
+     * 并附带了一些可以和其他函数组合的默认方法（compose, andThen）：
      */
     public static class TestFunction {
         public static void testDemo() throws InterruptedException {
@@ -36,6 +39,7 @@ public class FunctionConsumerPredicateDemo {
 
     /**
      * Consumer 接口的使用
+     * Consumer 接口表示执行在单个参数上的操作
      */
     public static class TestConsumer {
         public static void testDemo() throws InterruptedException {
@@ -56,6 +60,8 @@ public class FunctionConsumerPredicateDemo {
 
     /**
      * Predicate 接口的使用
+     * Predicate 接口只有一个参数，返回boolean类型。
+     * 该接口包含多种默认方法来将Predicate组合成其他复杂的逻辑（比如：与，或，非）：
      */
     public static class TestPredicate {
         public static void testDemo() throws InterruptedException {
@@ -74,11 +80,30 @@ public class FunctionConsumerPredicateDemo {
         }
     }
 
+    /**
+     * Supplier 接口的使用
+     * Supplier 接口返回一个任意范型的值，
+     * 和Function接口不同的是该接口没有任何参数
+     */
+    public static class TestSupplier {
+        public static void testDemo() throws InterruptedException {
+            String name = "";
+            String name1 = "12345";
+            System.out.println(validInput(() -> name.isEmpty() ? "名字不能为空" : name));
+            System.out.println(validInput(() -> name1.length() > 3 ? "名字过长" : name1));
+        }
+
+        public static String validInput(Supplier<String> function) {
+            return function.get();
+        }
+    }
+
     public static void main(String[] args) {
         try {
             TestFunction.testDemo();
             TestConsumer.testDemo();
             TestPredicate.testDemo();
+            TestSupplier.testDemo();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
