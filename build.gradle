@@ -34,6 +34,7 @@ subprojects {
 
     // 公共依赖配置
     dependencies {
+        testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
         testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
     }
 
