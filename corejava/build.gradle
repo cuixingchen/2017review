@@ -3,4 +3,5 @@ version '1.0-SNAPSHOT'
 
 dependencies {
 
+    compile group: 'cglib', name: 'cglib', version: '2.2.2'
 }
