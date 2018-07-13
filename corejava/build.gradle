@@ -1,3 +1,19 @@
+buildscript {
+    ext {
+        projectName = "corejava"
+    }
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenCentral()
+    }
+    dependencies {
+//        classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
+//        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
 group 'com.cuipengfei.java'
 version '1.0-SNAPSHOT'
 
